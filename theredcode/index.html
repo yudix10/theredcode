@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+<div class="top-actions">
+    <a href="/profile"><span class="header-btn">Профиль
+</span></a>
+    <a href="/logout"><span class="header-btn logout">Выйти</span></a>
+</div>
+
+        <div>
+        <h1>Добро пожаловать, {{ user.fullname }}</h1>
+        {% if user.role == 'admin' %}
+        <a href="/admin">Админ-панель</a><br><br>
+    {% endif %}
+    {% for chapter in chapters %}
+        <h2>
+            <a href="/chapter/{{ chapter.id }}">{{ chapter.title }}</a>
+        </h2>
+    {% endfor %}
+        </div>
+        <h4>
+            a David Badalyan production
+            theredcode © 2026
+        </h4>
+
+    </body>
+</html>
