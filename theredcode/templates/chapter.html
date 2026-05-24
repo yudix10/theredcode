@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+<div class="top-actions">
+    <a href="/profile"><span class="header-btn">Профиль
+</span></a>
+    <a href="/logout"><span class="header-btn logout">Выйти</span></a>
+</div>
+
+        <div class="container">
+            <h1>{{ chapter['title'] if chapter and 'title' in chapter.keys() else chapter[1] }}</h1>
+        {% for task in tasks %}
+            <div class="card">
+                <h3>{{ task.title }}</h3>
+                <a href="/task/{{ task.id }}">Открыть задачу</a>
+            </div>
+        {% endfor %}
+        </div>
+    </body>
+</html>
